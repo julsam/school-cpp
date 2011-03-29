@@ -33,6 +33,73 @@ main(int argc, char **argv)
                 break;
         }
     }
+/*
+    Peano p, q;
+    p = zero();
+    q = zero();
+
+    // P1
+    cout << "P1 " << ( add( zero(), p ) == p ? "true":"false") << endl;
+    cout << "add(zero, p) = p" << endl;
+    cout << "" << endl;
+
+    // P2
+    cout << "P2 " << ( add( succ(p), q ) == succ( add(p, q) ) ? "true":"false" ) << endl;
+    cout << "add(succ(p), q) = succ(add(p, q))" << endl;
+    cout << "" << endl;
+
+    // P3
+    cout << "P3 " << ( mult( zero(), p ) == zero() ? "true":"false" ) << endl;
+    cout << "mult(zero, p) = zero" << endl;
+    cout << "" << endl;
+
+    // P4
+    cout << "P4 " << ( mult( succ(p), q ) == add( mult(p, q), q ) ? "true":"false" ) << endl;
+    cout << "mult(succ(p), q) = add(mult(p, q), q)" << endl;
+    cout << "" << endl;
+
+    // P5
+    cout << "P5 " << ( inf( zero(), zero()) ? "true":"false" ) << endl;
+    cout << "inf(zero, zero) = false" << endl;
+    cout << "" << endl;
+
+    // P6
+    cout << "P6 " << ( inf( zero(), succ(p) ) == true ? "true":"false" ) << endl;
+    cout << "inf(succ(p), zero) = true" << endl;
+    cout << "" << endl;
+
+    // P7
+    cout << "P7 " << ( inf( succ(p), zero() ) ? "true":"false" ) << endl;
+    cout << "inf(zero, succ(p)) = false" << endl;
+    cout << "" << endl;
+
+    // P8
+    cout << "P8 " << ( inf( succ(p), succ(q) ) == inf( p, q ) ? "true":"false" ) << endl;
+    cout << "inf(succ(p), succ(q)) = inf(p, q)" << endl;
+    cout << "" << endl;
+
+    // P9
+    cout << "P9 " << ( zero() == zero() ? "true":"false" ) << endl;
+    cout << "egal(zero, zero) = true" << endl;
+    cout << "" << endl;
+
+    // P10
+    cout << "P10 " << ( zero() == succ(p) ? "true":"false" ) << endl;
+    cout << "egal(zero, succ(p)) = false" << endl;
+    cout << "" << endl;
+
+    // P11
+    cout << "P11 " << ( succ(p) == zero() ? "true":"false" ) << endl;
+    cout << "egal(succ(p), zero) = false" << endl;
+    cout << "" << endl;
+
+    // P12
+    cout << "P12 " << ( (succ(p) == succ(q)) == (p == q) ? "true":"false" ) << endl;
+    cout << "egal(succ(p), succ(q)) = egal(p, q)" << endl;
+    cout << "" << endl;
+    
+    
+   */
 
     // p
     Peano p;
@@ -75,7 +142,6 @@ main(int argc, char **argv)
         cout << "true" << endl;
     else
         cout << "false" << endl;
-
     return EXIT_SUCCESS;
 }
 

@@ -1,69 +1,63 @@
-#include <stdlib.h>
 #include <iostream>
 #include <string>
 #include "Duration.h"
 
 using namespace std;
 
-extern char *__progname;
-
-void usage(void);
-
 int
 main(int argc, char **argv)
 {
-    int o;
-    __progname = argv[0];
-    int in_p = 2, in_q = 3; // default values
-
-    while((o = getopt(argc, argv, "q:p:h")) != -1)
-    {
-        switch(o)
-        {
-            case 'p':
-                in_p = atoi(optarg);
-                break;
-            case 'q':
-                in_q = atoi(optarg);
-                break;
-            case '?':
-            case 'h':
-                usage();
-                break;
-        }
-    }
-
     try
     {
-        Duration d(12, 21, 17);
-        Duration dd(14, 55, 23);
-        Duration dd2(14, 55, 23);
+        /*
+        Duration d1(12, 21, 17);
+        Duration d2(14, 55, 23);
 
-        dd.display("dd");
-        cout << (d < dd ? "true":"false") << endl;
-        cout << (d == dd ? "true":"false") << endl;
-        cout << (dd == dd2 ? "true":"false") << endl;
-        d.display("d");
-        d = dd;
-        d.display("d");
-        d.addOneSecond();
-        d.display("d");
+        d1.display("duration1");
+        d2.display("duration2");
+        cout << (d1 < d2 ? "true":"false") << endl;
+        cout << (d1 == d2 ? "true":"false") << endl;
+        d1 = d2;
+        d1.display("duration1");
+        d1.addOneSecond();
+        d1.display("duration1");
+        */
 
+        cout << "(P1) heures(uneDurée(h, m, s)) = h " << endl;
+
+        cout << (Duration(14, 24, 55).getHours() == 14 ? "true":"false") << endl;
+
+
+        cout << "(P2) minutes(uneDurée(h, m, s)) = m" << endl;
+
+        cout << (Duration(14, 24, 55).getMinutes() == 24 ? "true":"false") << endl;
+
+
+        cout << "(P3) secondes(uneDurée(h, m, s)) = s" << endl;
+
+        cout << (Duration(14, 24, 55).getSeconds() == 55 ? "true":"false") << endl;
+
+
+        cout << "(P4) inf(uneDurée(h1, m1, s1), uneDurée(h2, m2, s2)) =" << endl;
+        cout << "\t(h1 < h2) ou (h1=h2 et m1 < m2) ou (h1=h2 et m1=m2 et s1 < s2)" << endl;
+
+        int h1=14, m1=24, s1=55, h2=5, m2=39, s2=27;
+        //cout << ((Duration(h1, m1, s1) < Duration(h2, m2, s2) == (h1 < h2) || (h1==h2 && m1 < m2) || (h1==h2 && m1==m2 && s1 < s2)) ? "true":"false") << endl;
+
+        //TODO: finish
+
+        cout << "(P5) égal(uneDurée(h1, m1, s1), uneDurée(h2, m2, s2)) =" << endl;
+        cout << "\th1 = h2 et m1 = m2 et s1 = s2" << endl;
+
+        cout << "(P6) plusUneSeconde(uneDurée(h, m, s)) = " << endl;
+        cout << "\tsi s < 59 alors uneDurée(h, m, s + 1)" << endl;
+        cout << "\tsinon si m < 59 alors uneDurée(h, m + 1, 0)" << endl;
+        cout << "\t\tsinon uneDurée(h + 1, 0, 0)" << endl;
     }
     catch (const string &e) {
         cout << "\n" << e << endl;
     }
 
     return 0;
-}
-
-void
-usage(void)
-{
-    cout << "usage: " << __progname << " [-pq]\n"
-            "\t-h\t\tShow this page\n"
-            "\t-p\t\tFirst Peano value\n"
-            "\t-q\t\tSecond Peano value" << endl;
-    exit(1);
 }
 

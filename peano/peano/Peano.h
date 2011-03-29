@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string.h>
 
-const int LGMAX = 10000;
+const int LGMAX = 100;
 struct Peano
 {
     char peano[LGMAX];

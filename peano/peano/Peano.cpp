@@ -55,7 +55,7 @@ mult(const Peano p, const Peano q) throw(std::string)
         for(int j = 0; k < (LGMAX - 1) && q.peano[j] != '!'; j++, k++)
             prod.peano[k] = '*';
     }
-    if(k >= LGMAX)
+    if(k == LGMAX-1)
         throw std::string("Overflow");
     prod.peano[k] = '!';
     return prod;

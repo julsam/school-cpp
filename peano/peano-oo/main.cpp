@@ -64,7 +64,6 @@ main(int argc, char **argv)
         cout << "\n" << e << endl;
     }
 
-
     return EXIT_SUCCESS;
 }
 
