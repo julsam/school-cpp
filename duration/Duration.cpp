@@ -21,6 +21,13 @@ Duration::Duration(const int h, const int m, const int s) throw(std::string)
     m_seconds = s;
 }
 
+Duration::Duration(const Duration& d)
+{
+    m_hours     = d.getHours();
+    m_minutes   = d.getMinutes();
+    m_seconds   = d.getSeconds();
+}
+
 void
 Duration::display(const std::string name)
 {
@@ -86,7 +93,6 @@ Duration::operator = (const Duration d)
     return *this;
 }
 
-
 void
 Duration::addOneSecond()
 {
@@ -103,4 +109,14 @@ Duration::addOneSecond()
             m_hours++;
         }
     }
+}
+
+Duration
+Duration::addOneSecond(const Duration& d)
+{
+    Duration d2(d);
+
+    d2.addOneSecond();
+
+    return d2;
 }
