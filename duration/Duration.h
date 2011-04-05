@@ -16,9 +16,9 @@ public:
     int getMinutes() const;
     int getSeconds() const;
 
-    Duration operator = (const Duration d);
-    bool operator < (const Duration d);
-    bool operator == (const Duration d);
+    Duration operator = (const Duration& d);
+    bool operator < (const Duration& d);
+    bool operator == (const Duration& d);
 
     void addOneSecond();
     static Duration addOneSecond(const Duration& d);

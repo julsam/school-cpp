@@ -23,9 +23,9 @@ Duration::Duration(const int h, const int m, const int s) throw(std::string)
 
 Duration::Duration(const Duration& d)
 {
-    m_hours     = d.getHours();
-    m_minutes   = d.getMinutes();
-    m_seconds   = d.getSeconds();
+    m_hours     = d.m_hours;
+    m_minutes   = d.m_minutes;
+    m_seconds   = d.m_seconds;
 }
 
 void
@@ -54,16 +54,15 @@ Duration::getSeconds() const
 
 
 bool
-Duration::operator < (const Duration d)
+Duration::operator < (const Duration& d)
 {
-    int h = d.getHours(), m = d.getMinutes(), s = d.getSeconds();
-    if (m_hours < h)
+    if (m_hours < d.m_hours)
         return true;
-    else if (m_hours == h && m_minutes < m)
+    else if (m_hours == d.m_hours && m_minutes < d.m_minutes)
         return true;
-    else if (m_hours == h
-            && m_minutes == m
-            && m_seconds < s)
+    else if (m_hours == d.m_hours
+            && m_minutes == d.m_minutes
+            && m_seconds < d.m_seconds)
         return true;
     else
         return false;
@@ -77,19 +76,19 @@ Duration::operator < (const Duration d)
 }
 
 bool
-Duration::operator == (const Duration d)
+Duration::operator == (const Duration& d)
 {
-    return ( m_hours == d.getHours()
-            && m_minutes == d.getMinutes()
-            && m_seconds == d.getSeconds() );
+    return ( m_hours == d.m_hours
+            && m_minutes == d.m_minutes
+            && m_seconds == d.m_seconds );
 }
 
 Duration
-Duration::operator = (const Duration d)
+Duration::operator = (const Duration& d)
 {
-    m_hours     = d.getHours();
-    m_minutes   = d.getMinutes();
-    m_seconds   = d.getSeconds();
+    m_hours     = d.m_hours;
+    m_minutes   = d.m_minutes;
+    m_seconds   = d.m_seconds;
     return *this;
 }
 
