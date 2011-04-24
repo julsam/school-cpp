@@ -6,19 +6,6 @@ using namespace std;
 int
 main(void)
 {
-    /*
-    Evenement x;
-    initialiserEvenement(5, 9.50, 11.0, "BBQ", "Barbecue", x);
-    deque<Evenement*> mydeque;
-    deque<Evenement*>::iterator it;
-    for (int i = 0; i < 7; i++) mydeque.push_back(&x);
-
-    for (it = mydeque.begin(); it < mydeque.end(); it++)
-        cout << (*it)->descLongue << endl;
-
-    cout << mydeque[2]->descAbrg << endl;
-    */
-
     try
     {
         Evenement e, f, g, h, i, j, k, l;
@@ -46,9 +33,6 @@ main(void)
         placerEvenement(a, &l);
 
         //saisirEvenement(e);
-        //afficherEvenement(*a.semaine[63.0]);
-        //afficherJourSemaine(e.jour);
-        //afficherDebutJourSemaine(e.jour);
 
         afficherAgendaDetail(a);
         afficherAgendaGlobal(a);
