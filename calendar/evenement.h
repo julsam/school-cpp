@@ -24,9 +24,12 @@ void saisirEvenement(Evenement& e) throw (std::string);
 void initialiserEvenement(int j, float hD, float hF, std::string a, std::string d, Evenement& e) throw (std::string);
 void afficherEvenement(const Evenement& e);
 bool estAnterieur(const Evenement& e1, const Evenement& e2);
+bool operator < (const Evenement& e1, const Evenement& e2);
 void afficherJourSemaine(int j) throw (std::string);
 void afficherDebutJourSemaine(int j) throw (std::string);
-std::string getSemaine(int j);
+std::string getDay(int j);
+bool chevauchementHoraireInf(const Evenement* a, const Evenement* b);
+bool chevauchementHoraireSup(const Evenement* a, const Evenement* b);
 
 
 #endif // _EVENEMENT_H

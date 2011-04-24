@@ -26,12 +26,7 @@ validerEvenement(const Evenement& e) throw (std::string)
 
 bool heureValide(const float h)
 {
-    float h2 = h;
-    h2 *= 2;
-    if (ceil(h2) > h2)
-        return true;
-    else
-        return false;
+    return ( ceil(h*2) > h*2 ? true:false );
 }
 
 void
@@ -78,7 +73,7 @@ afficherEvenement(const Evenement& e)
     cout.precision(1);
     cout.setf(ios::fixed, ios::floatfield);
 
-    cout << setw(4) << right << e.heureDebut;
+    cout << "    " << setw(4) << right << e.heureDebut;
     cout << " - ";
     cout << setw(4) << right << e.heureFin;
 
@@ -96,22 +91,33 @@ estAnterieur(const Evenement& e1, const Evenement& e2)
         return false;
 }
 
+bool
+operator < (const Evenement& e1, const Evenement& e2)
+{
+    if (e1.jour < e2.jour)
+        return true;
+    else if (e1.jour == e2.jour && e1.heureDebut < e2.heureDebut)
+        return true;
+    else
+        return false;
+}
+
 void
 afficherJourSemaine(int j) throw (std::string)
 {
-    cout << getSemaine(j) << endl;
+    cout << setw(8) << left << getDay(j) << ":" << endl;
 }
 
 void
 afficherDebutJourSemaine(int j) throw (std::string)
 {
-    string s = getSemaine(j);
+    string s = getDay(j);
     s.resize(2);
-    cout << s << endl;
+    cout << s;
 }
 
 string
-getSemaine(int j)
+getDay(int j)
 {
     string s;
     switch(j)
@@ -122,23 +128,18 @@ getSemaine(int j)
         case 2:
             s = "Mardi";
             break;
-
         case 3:
             s = "Mercredi";
             break;
-
         case 4:
             s = "Jeudi";
             break;
-
         case 5:
             s = "Vendredi";
             break;
-
         case 6:
             s = "Samedi";
             break;
-
         case 7:
             s = "Dimanche";
             break;
@@ -146,3 +147,20 @@ getSemaine(int j)
     return s;
 }
 
+bool
+chevauchementHoraireInf(const Evenement* a, const Evenement* b)
+{
+    if (a->jour == b->jour && (a->heureDebut < b->heureFin
+            || a->heureDebut == b->heureDebut))
+        return true;
+    return false;
+}
+
+bool
+chevauchementHoraireSup(const Evenement* a, const Evenement* b)
+{
+    if (a->jour == b->jour && (a->heureFin > b->heureDebut
+            || a->heureDebut == b->heureDebut))
+        return true;
+    return false;
+}

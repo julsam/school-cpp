@@ -1,7 +1,7 @@
 .SUFFIXES:
 
 TARGET = bin
-OBJ = clientAgenda.o evenement.o
+OBJ = clientAgenda.o evenement.o agenda.o
 CXX = g++
 CXXFLAGS = -W -Wall -g
 #LDFLAGS =
